@@ -60,3 +60,18 @@ List of side effects:
 - CPU Time Delay
 
 `The goal is to minimize the side-effects rather than removing all.`
+
+
+## Function Arguments
+Unary 
+```js
+function increment(x){
+  return sum(x, 1);
+}
+```
+Binary
+```js
+function sum(x, y){
+  return x + y;
+}
+```
