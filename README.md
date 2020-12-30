@@ -61,17 +61,79 @@ List of side effects:
 
 `The goal is to minimize the side-effects rather than removing all.`
 
-
 ## Function Arguments
-Unary 
+
+Unary
+
 ```js
-function increment(x){
+function increment(x) {
   return sum(x, 1);
 }
 ```
+
 Binary
+
 ```js
-function sum(x, y){
+function sum(x, y) {
   return x + y;
 }
+```
+
+## Higher-Order Function
+
+A function that recieves functions as arguments and returns a function.
+
+## Adapters
+
+Flip & Reverse
+
+```js
+// Returns a new function with first two args reversed
+function flip(fn) {
+  return function flipped(arg1, arg2, ...args){
+    return fn(arg2, arg1, ...args);
+  }
+}
+
+function f(...args){
+  return args;
+}
+
+const g = flip(f);
+
+g(1,2,3,4); // [4,3,2,1]
+```
+
+spreadArgs ( AKA apply )
+
+```js
+function spreadArgs(fn){
+  return function spread(args){
+    return fn(...args);
+  };
+}
+
+function f(x,y,z,w){
+  return x + y + z + w;
+}
+
+const g = spreadArgs(f);
+
+g([1,2,3,4]); // 10
+```
+
+### Equational Reasoning
+
+If two functions have the same shape (inputs), they are interchangable.
+
+```js
+getPerson( (person) => {
+  return renderPerson(person)
+});
+```
+
+Alternative
+
+```js
+getPerson(renderPerson)
 ```
