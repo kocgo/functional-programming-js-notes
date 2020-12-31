@@ -162,7 +162,7 @@ const printIf = when(output);
 printIf(isShortEnough)(msg);
 ```
 
-### Equational Reasoning
+### Equational Reasoning ( point-free )
 
 If two functions have the same shape (inputs), they are interchangable.
 
@@ -176,4 +176,38 @@ Alternative
 
 ```js
 getPerson(renderPerson);
+```
+
+### Composition (Advanced Point-Free)
+
+Composition is taking one functions output and making it another function's input.
+
+```js
+function mod(y) {
+  return function forX(x) {
+    return x % y;
+  };
+}
+
+function eq(y) {
+  return function forX(x) {
+    return x === y;
+  };
+}
+
+function compose(fn2, fn1) {
+  return function composed(v) {
+    return fn2(fn1(v));
+  };
+}
+
+// isOdd will return a composed function
+
+/* 
+  Execution order is important in functional programming! 
+  Compositions will execute from right to left.  
+*/
+const isOdd = compose(eq(1), mod(2));
+
+isOdd(3); // True
 ```
