@@ -201,13 +201,50 @@ function compose(fn2, fn1) {
   };
 }
 
-// isOdd will return a composed function
-
 /* 
   Execution order is important in functional programming! 
   Compositions will execute from right to left.  
 */
-const isOdd = compose(eq(1), mod(2));
+
+const isOdd = compose(eq(1), mod(2)); // returns function
 
 isOdd(3); // True
+```
+
+### Closure
+
+Closure is when a function `remembers` the variables around it even when that function is executed elsewhere.
+
+Any variables you access outside of function.
+
+```js
+function makeCounter() {
+  let counter = 0;
+  return function increment() {
+    return ++counter;
+  };
+}
+
+var c = makeCounter();
+c(); // 1
+c(); // 2
+c(); // 3
+```
+
+This function is not a `pure` function because it is not returning same outputs on each call. (same input => same output rule)
+
+String Builder Exercise (on each call a new closure is created, this is the way to keep purity)
+
+```js
+function stringBuilder(str) {
+  return function next(v) {
+    if (typeof v == "string") {
+      return stringBuilder(str + v); // Recursion
+    }
+
+    return str;
+  };
+}
+
+stringBuilder("Hello ")("Gokhan")(); // Hello Gokhan
 ```
