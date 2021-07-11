@@ -252,10 +252,7 @@ stringBuilder("Hello ")("Gokhan")(); // Hello Gokhan
 ### Piping vs Composition
 Compose is right-to-left, Pipe is left-to-right.
 
-Compose
-```js
 
-```
 
 Pipe
 ```js
@@ -267,5 +264,12 @@ function pipe(...fns) {
     
     return v;
   }
+}
+```
+
+Compose
+```js
+function compose(...fns) {
+  return pipe(...fns.reverse()); // Just reverse the order of functions
 }
 ```
