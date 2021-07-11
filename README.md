@@ -248,3 +248,24 @@ function stringBuilder(str) {
 
 stringBuilder("Hello ")("Gokhan")(); // Hello Gokhan
 ```
+
+### Piping vs Composition
+Compose is right-to-left, Pipe is left-to-right.
+
+Compose
+```js
+
+```
+
+Pipe
+```js
+function pipe(...fns) {  
+  return function piped(v){  // Returns a function, no execution yet! 
+    for (let fn of fns){
+      v = fn(v); // Take the input, and start executing, re-assign 'v' each time
+    }
+    
+    return v;
+  }
+}
+```
