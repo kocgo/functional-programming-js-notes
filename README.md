@@ -273,3 +273,9 @@ function compose(...fns) {
   return pipe(...fns.reverse()); // Just reverse the order of functions
 }
 ```
+
+### Immutability
+
+Immutability is a concept of controlling the mutation.
+
+- Avoid making variable assignments as possible???
