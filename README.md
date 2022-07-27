@@ -8,8 +8,9 @@ According to Haskell and the Fantasy Land specification, a functor is simply som
 If and only if a functor of class always return the same class as itself, this functor is an endofunctor.
 
 Requirements:
-- Transformation of content (Category A -> Category B)
-- .map should return same structure (String.map returns String, Array.map returns Array)
+- Should transform content (Category A -> Category B)
+- .map should return same structure (Object.map returns Object, Array.map returns Array)
+- Should return a Functor
 
 ### Category
 
