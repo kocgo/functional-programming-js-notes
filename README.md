@@ -12,6 +12,11 @@ Requirements:
 - .map should return same structure (Object.map returns Object, Array.map returns Array)
 - Should return a Functor
 
+Use cases:
+- Promises
+- Streams
+- Trees
+
 ### Category
 
 ## Imperative vs Declarative Programming
