@@ -6,7 +6,11 @@
 In mathematics, specifically category theory, a functor is a mapping between categories.
 According to Haskell and the Fantasy Land specification, a functor is simply something that can be mapped over. In OOP-speak, we’d call it a ‘Mappable’ instead.
 If and only if a functor of class always return the same class as itself, this functor is an endofunctor.
- 
+
+Requirements:
+- Transformation of content (Category A -> Category B)
+- .map should return same structure (String.map returns String, Array.map returns Array)
+
 ### Category
 
 ## Imperative vs Declarative Programming
